@@ -1,9 +1,13 @@
 const express = require('express');
-const app = express();
-const pokemon_list = require("./pokemon_list");
+const cors = require('cors');
 
-app.get('/pokemon', (req, res) => {
-    res.send(pokemon_list);
+const app = express();
+
+app.use(cors());
+
+app.get('/get_msg', (req, res) => {
+    console.log (req);
+    res.send({test_msg: "Hello there!"});
 })
 
 const port = process.env.PORT || '5000';
